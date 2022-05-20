@@ -1,0 +1,19 @@
+{
+  "name": "z",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scripts": "cypress run",
+    "cyp": "npx cypress run --config-file=cypress.json  -- browser --chrome --headless"
+  },
+  "dependencies": {
+    "cypress": "^9.1.1",
+    "cypress-xpath": "^1.6.2",
+    "typescript": "^4.5.2"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

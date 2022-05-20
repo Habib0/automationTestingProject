@@ -1,0 +1,7 @@
+{
+    "baseUrl":"https://demo.seleniumeasy.com/",
+    "testFiles": [
+        "inputForm/simpleForm.ts"
+    ],
+    "video":false
+}
