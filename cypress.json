@@ -3,5 +3,5 @@
     "testFiles": [
         "inputForm/simpleForm.ts"
     ],
-    "video":false
+    "video":true
 }
