@@ -7,7 +7,7 @@ describe("Simple Form",()=>{
         cy.get('.at-cm-no-button').click({force:true})
         cy.xpath('//a[contains(text(), "Input Forms")]').eq(1).click({force:true})
         cy.get('[href="./basic-first-form-demo.html"]').eq(1).click({force:true})
-        cy.get('[placeholder="Please enter your Message"]').type("hello world")
+        cy.get('[placeholder="Please enter your Message"]').type("hello world this is first commit")
         cy.xpath('//button[@type="button" and contains(text(), "Show Message")]').click({force:true})
         
     })
