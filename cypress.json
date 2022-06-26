@@ -3,5 +3,6 @@
     "testFiles": [
         "inputForm/simpleForm.ts"
     ],
-    "video":false
+    "video":false,
+    "screenshotsFolder": "cypress/screenshots"
 }
