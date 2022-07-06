@@ -4,18 +4,41 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- none
+  - test
 
 pool:
-  vmImage: ubuntu-latest
-
+  vmImage: "ubuntu-latest"
+  Image: cypress/browsers:node12.16.2-chrome81-ff75
+variables:
+  - group: cypress
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "10.x"
+    displayName: "Install Node.js"
 
-- script: |
-    npm install
-    npm run cyp
-  displayName: 'npm install and build'
+  - script: |
+      echo $(userName) 
+       npm install
+       npm run cyp
+    displayName: "npm install"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: cypress/videos
+      ArtifactName: videos
+    condition: succeededOrFailed()
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "cypress/screenshots"
+      ArtifactName: "screenshots"
+    condition: Failed()
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: "JUnit"
+      testResultsFiles: "*.xml"
+      searchFolder: "$(System.DefaultWorkingDirectory)/tests/"
+      mergeTestResults: true
+      testRunTitle: "Publish test results"
+    condition: succeededOrFailed()
