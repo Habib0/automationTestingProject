@@ -10,7 +10,7 @@ pool:
   vmImage: "ubuntu-latest"
   Image: cypress/browsers:node12.16.2-chrome81-ff75
 variables:
-  - group: testAutomation
+  - group: cpress
 steps:
   - task: NodeTool@0
     inputs:
